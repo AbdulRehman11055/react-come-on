@@ -1,0 +1,76 @@
+//IMPLEMENTING SEARCH FUNCTIONALITY
+state use kr k hum nay search functionality apply ke hai
+state ko hum App file mai import kia hai
+hum ny searchBar or CountriesList k parent yani App par state use ke hai
+or child par prop pass kiye hain
+query name k prop ko hum ny CountriesList component mai diya hai or wahan sy hum nay countries k data sy input k through search ke janay wali query filter method kr k get ke hai
+setQuery name k prop ko hum nay searchBar component mai diya hai or wahan sy user ke kari jany wali input ko get kia hai
+user ke anay wali input or CountriesList mai mojoud data agar same ho toh hum ny usi name wali country k card ko state ke madad sy render kiya hai
+//useEffect HOOK IN REACT
+isko hum tab use karty hain jab hum ny kisi data ko just first time call krna ho 
+is mai ak call back function pass krty hain
+1st usecase.. call back function k bad , laga k empty array pas krny sy us callback k andar wala code bs ak he bar run hoga chahy jitne marzi dafa rendering ya koi or functionality perform hoti rahy 
+2nd usecase.. isky andar waly empty array ko dependancy array b kehty hain isky andar hum varibale b dal sakty but asa krny sy jb jb wo varibale update ya change hoga useEffect call hota rhy ga isi lia hum mostly isko empty rkhty or iska mostly usecase fetch api hota
+useState hook state create krny k lia use hota hai
+2nd usecase.. basically useEffect hook useState ko monitor krny k lia use hota hai k jab jab useState k variables change or update ho gay useEffect wala code run hoga
+3rd usecase.. useEffect hook sy hum ak cleaning up callback function b return krwa skty hain yeh function tb call hoga jab hum koi component unmount krty hain apny page sy mean remove krty hain
+4th usecase..setinterval k case mai cleaning k bad b code chalta rehta hai toh isko rokny k lia hum interval id ko cleaning function mai pass kr k rukwa skty mean remove/unmount kra skty
+3rd or 4th case mai jasy he hum search input mai unmount likhy gay hamara CountriesList component remove hojaye ga or interval function b stop ho jaye ga due to cleaning function of the useEffect hook
+useEffect HOOK KO HUM NAY FETCH API K LIA CALL KIYA HAI APNY PROJECT MAI
+hum nay useEffect sy api call kr k useState k function mai usko get kiya hai in usecase 1
+//React Router v6 | Routing in React
+react mai ak he file serve hoti hai jo dist folder k andar hoti hai
+beshak hum khud sy koi or file create kr k serve krwaye but hoti bs dist folder wali html file hai
+agar hum mutlipe file ko serve krwana chahty hain toh usky lia routing ka concept use kary gay react mai ak library use kry gay uska name hai react router dom
+npm i react-router-dom    package install kry gay
+package k bad index.jsx jo hamari main file hai wahan import kry gay react-router-dom ko
+after import hum nay index.jsx mai routing setup ke usky bad hum mutlipe pages ko serve kr skty hain e.g contact about
+agr ak component ko hum ny mutlipe pages par render krna hai toh har page par component alag sy deny ke bajaye hum root.render mai dy dye gay component ko toh wo har page par render hoga as per example in our PROJECT is header component
+above sy b best routing method hai Outlet component wala is mai hum nested routing krty hai parent route mai childeren route ko nest krty hai
+hum ny ak error route create ke hai jo kisi b unknown page par serve hony par show hogi
+hum useRouteError hook use kar k error show krwa skty hain
+react router dom main hum anchor tag ke jaga Link tag use kr k jb page par jaye gy toh yeh without loading jaye ga is mai hum href ke jada to attribute use kry gy
+react router dom history api of js use krta hai behind the scene
+// Dynamic Routing in React 
+kisi b route ko Dynamic route bnany k lia usky path mai / k bad : laga k uska name dy gay toh wo Dynamic ban jaye ga or us mai infinite number of path create ho jaye gay its mean hum us route mai / k bad kuch b path dy gay toh wo usi path par jaye ga
+react router dom ak hook provide krta hai useParams yeh hamy us path k bary mai btata hai jo hum ny infinite paths mai diya ho
+// Handle Multiple Fetch Requests | Promise.all( ) in React 
+Promise.all ka use kr k hum multi times rendering ko ak he time mai render krwa skty hain kyu k promise tb tk wait krta hai jab tk usky andar ke working complete na ho jaye usky bad render krwata hai component ko 
+promiseall.txt mai both codes hain promise wala b or simple wala b simple mai jitny border countries hain otni dafa rendering ho rahi hai but promise k case mai jab tk tamam border countries ka data nai aye ga promise return ne hoga its mean rendering nai hoge
+// Shimmer Effect in React | Skeleton Loading 
+during page loading jab data ne aya hota toh data anay sy pehly tk ab loading layout user ko show krwaya jata hai jo data k aty he gaib hojata hai is loading Effect ko shimmer Effect kehty hain
+// Pass Data from One Page to Another in React
+hum nay jab first time api ko call kr k data fetch kiya tha toh hamary pas sari countries ka data agaya tha fetch ho kr usky bad jab specific country card par click kr k us country ka data get krny CountryDetail waly page par ja rhy hain toh us country ka data dubara fetch ho raha hai jab k hum already sari countries ka data fetch kr chukay hain toh specific country k data ko fetch krny ke need nai hai toh hum main page sy fetch hony waly tamam countries k data ko he specific country waly page par pass kr skty hain
+useLocation hook of react use kr k hum ak page k data ko dusry page mai pass kr skty hain
+is hook ko use krny k lia hum react Link tag jis k through hum specific country page par jaye gay us mai state attribute dy gay is state attribute mai hum kuch b pass kr skty string object array function etc
+jis page par hum ny dusry page ka data get krna us page par hum yeh useLocation hook use kary gay in our case hum countrydetail.jsx mai CountriesList ka data get kr rhy toh countrydetail mai hum is hook ko use kry gay
+hum nay data attribute mai tamam countries ka data get kia api sy CountryList file sy
+hum nay countrycard.jsx mai Link mai state attribute mai api sy anay wla data get kiya
+state ko hum nay useLocation hook mai use kiya countrydetail file mai
+state par if condition lagai hai 
+ak function bna k hum nay code ko simplify kia k agar user main country file sy specific country file mai jaye ga toh toh fetch ne hoga or wo main file waly fetch sy data ly ga but agar user direct specific country file par jata hai main country file par jaye begair toh fetch hoga
+yeh hook behind the scene history api of js he use krta hai
+//Dark Mode in React
+header.jsx mai hum ny modes or icons ka code kia hai
+state hook use kr k hum ny onclick par moon or soon icon dikhaya hai
+state hook use kr k hum ny onclick par dark light text dikhaya hai
+page refresh hony sy mode automatic bydefault ho rha tha is bydefault ko khatam krny k lia hum ny local storage mai ak key value pair set kia boolean form mai usky bad usko hum ny get kia hai state hook k andar or usky bad uski basis par hum ny dark class ko body sy add or remove kia hai if else mai or is dark class mai css likhe hui hai jo project k text colors or backgrounds ko change kr rhe hai
+iska ak best or recomended way b hai jo below hai
+hum ny dark class or color managements body sy hata kr header or main tag par ke
+kyu k header or main alag alag component mai hain toh hum inky parent yani App.jsx par hook state use kry gay or hook k array ko as a prop with name theme hum app.jsx k header component mai pass kry gay..ab kyu k main component ak child hai jo k Outlet k andar hai toh is mai props deny k lia context name sy prop dy gay context deny sy hum Outlet k kisi b component ko acess kr skty isky lia hamy ak hook dena hoga usi component mai jahan acess krna hai in our case Home.jsx mai hook dy gay hook name is useOutletContext isky bad hum dynamically header or main component mai class add kr dy gay
+context use kr k humy props ne deny party
+hamy countrydetail mai main tag mai b dynamic class deni pary gi mode k lia
+// How to Work with the React Context API?
+context api ke madad sy hum ak context ko Multiple files mai use kr skty hain
+hum ak contexts name sy folder bnaty hain jis mai hum context related files create krty hain
+hum files mai react function createContext bana k usko export krty hain..from Context folder ThemeContext.js
+or is context file ko hum us file mai import krty hain jahan use krna ho context ko or use krny k lia ak react hook use krty hain useContext us file mai jahan import kia ho toh import wali file mai context ke value woi set hoti hai jo export wali file mai hum ny context create krty waqt de the...in Home.jsx
+agar hum tamam components ko wrap krdy gay ak context component mai with .provider or us mai value prop mai jo value set kry gay toh import wali file mai useContext ko woi value attribute wali value assign hoge or export wali value overright hojaye gi...we did it in App.jsx 
+is concept ka use kr k hum nay theme dark light implement ke hai or ye methods last lecture waly both methods sy best hai is mai hum useOutletContext ke bajaye use or create context kr rhy hain
+hum ny app.jsx waly components ko context folder mai ThemeContext.js mai ak function mai define kia hai state b wahin de hai context b wahin provide kiya hai taa k code more simplify ho jaye or ye sb krny k bad as a childeren prop hum ny header or Outlet component ko pass kr k get kiya haii app.jsx mai
+is lecture mai hum ny apna khud ka context create kia  context folder mai ThemeContext.js mai or isko hum kisi b file mai use kr skty
+// How to Create Custom Hooks in React ?
+koi b function jis k start mai use keyword ho usko hook kehty hain kuch hook react ke trf sy defined hoty hum khud sy b hook create kr skty
+hum ny hooks folder mai ak custom hook bnaya hai for practice purpose only or is hook ko hum Multiple files mai use kr skty hain as for practice purpose hum ny Home.jsx mai use kiya hai custom hook ko
+hum ny theme k lia b ak custom hook create kiya hai jiske madad sy hamy bar bar useContext or ThemeContext ko import krna ne par rha apni home countrydetail or header file mai hum just us hook ko import kr k working krwa rhy hain
+assignment is create custom hook to filter data or isko bnany k lia ak hint dia gya hai jisko hum use kr skty const[filteredData,setQuery]=useFilter(data,()=>'')

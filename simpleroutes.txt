@@ -1,0 +1,17 @@
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+const Home = () => <App/>;
+const About = () => <h2>About Page</h2>;
+const Main = () => {
+    return (
+      <Router future={{ v7_startTransition: true ,v7_relativeSplatPath: true}} >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+      </Router>
+    );
+  };
+const root = createRoot(document.getElementById("root"));
+root.render(<Main />);

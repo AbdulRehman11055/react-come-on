@@ -1,0 +1,18 @@
+use this
+Promise.all(data.borders.map((border)=>{
+        return fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+          .then((res) => res.json())
+          .then(([borderCountry])=>borderCountry.name.common)
+      })).then((borders)=>{
+        setCountryData((prevState)=>({...prevState,borders}))
+      })
+instead of this
+data.borders.map((border)=>{
+        fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+          .then((res) => res.json())
+          .then(([borderCountry])=>{
+            console.log(borderCountry.name.common)
+            setCountryData((previousState)=>({...previousState,borders:[...previousState.borders,borderCountry.name.common]}))
+          })
+      })
+in countrydetail.jsx for countries border code      

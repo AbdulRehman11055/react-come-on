@@ -1,0 +1,3 @@
+use this <Link className="country-card" to={`/${name}`}> instead of this <Link className="country-card" to={`/country?name=${name}`}> in countrycard.jsx
+use this const params=useParams() const countryName=params.country instead of this  const countryName = new URLSearchParams(window.location.search).get("name"); in countrydetail.jsx
+use this <Route path="/:country" element={<CountryDetail />} /> instead of this <Route path="/country" element={<CountryDetail />} /> in index.jsx
